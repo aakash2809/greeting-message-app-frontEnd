@@ -1,5 +1,9 @@
 
-.panel-body{
- background-color: yellow;
-}
+.panel-body {
+    background-color: rgb(226, 76, 76);
+    height: 150px;
+    width: 150px;
+    padding-left: 200px;
+  }
+  
 
