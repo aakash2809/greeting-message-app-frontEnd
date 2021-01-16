@@ -1,45 +1,14 @@
- /* .page-header{
-    background-color: whitesmoke;
-    height: 100%;
-    width: 100%;
-   
+
+*{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-
-.icon ul {
-    display: inline-flex;
-    margin: 10px;
-    font: 50;
-    text-align: right;
-}
-
-.icon li{
-    list-style: none;
-    display: inline-flex;
-    margin: 10px;
-
-}
-
-.logo img{
-    width: 30px;
-    height: 30px;
-}
-
-a{
-    text-decoration: inherit;
-}
-}
-
-.sign-btn:hover{
-    background-color: slateblue;
-}  */
-
-
 .header{
-    background-color:lavender; 
-    width: 100%;
-    height:50px;
+    background-color:white; 
+    width: 1160px;
+    height: 48px;
+    margin-left: 180px;
+    box-shadow:  0px 3px #f5ecec;
 }
-
 
 .logo img{ 
     height: 15px;
@@ -47,25 +16,61 @@ a{
  
 }
 
-
-ul{
+.header-list{
     list-style: none;
     display: inline-flex;
+    margin-top: 10px;
     padding: 2px 0px 2px 72px;; 
-    margin: -13px 29px 23px 798px;
+    margin: -13px 2px -11px 630px;
+}
+
+.msg-align{
+    text-align: left;
+    padding-left:8px ;
+    list-style: none;
 }
 .sign-btn{
     color: skyblue;
     border: solid;
     border-radius: 20px;
     padding: 3px 4px;
+    text-decoration: none;
 }
 
 .sign-btn:hover{
     background-color: slateblue;
 } 
-.msg-align{
+/* .msg-align{
     text-align: left;
     padding-left:8px ;
     list-style: none;
+} */
+
+/* side bar */
+.side-bar{
+    background-color:lavender; 
+    width: 175px;
+    height: 1200px;
+    padding: 2px 0px 2px 72px;
+    margin: -59px 123px 1px -66px;
+   
+}
+
+.side-bar a{
+    text-decoration: none;
+}
+
+.side-bar ul{
+    list-style: none;
+    padding-left: 0px;
+    padding-top: 43PX;
+   
+}
+.side-bar ul li{
+    margin-top: 10px;
+}
+
+.side-bar li img{
+    height: 15px;
+    width: 15px;
 }
