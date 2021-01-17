@@ -21,14 +21,15 @@
     display: inline-flex;
     margin-top: 10px;
     padding: 2px 0px 2px 72px;; 
-    margin: -13px 2px -11px 630px;
+    margin: -13px 2px -11px 710px;
+    font-size: 12px;
 }
 
 .sign-btn{
     color: skyblue;
     border: solid;
-    border-radius: 20px;
-    padding: 3px 4px;
+    border-radius: 15px;
+    padding: 3px 5px;
     text-decoration: none;
 }
 .msg-align{
@@ -37,7 +38,7 @@
     list-style: none;
 }
 .sign-btn:hover{
-    background-color: slateblue;
+    background-color: rgb(36, 151, 197);
 } 
 
 
@@ -48,11 +49,13 @@
     height: 1200px;
     padding: 2px 0px 2px 72px;
     margin: -59px 123px 1px -66px;
+    font-size: 12px;
    
 }
 
 .side-bar a{
     text-decoration: none;
+    color: black;
 }
 
 .side-bar ul{
@@ -79,27 +82,28 @@
     background-color:white;
     height: 1075px;
     padding: 8px 8px 8px 8px;
-    margin: 0px 0px 0px 0px;
-    
+    margin: 0px 0px 0px 0px;   
+}
+
+.panels-container h3{
+    padding-left: 18px;
 }
 
 .greeting-element{
     background-color:white;
     display: inline-block;
-    height:200px;
-    width: 300px;
+    height:150px;
+    width: 250px;
     padding: 10px 15px 2px 13px;
-    margin: 3px 3px 10px 2px;
-    box-shadow:2px 2px 2px 7px whitesmoke
-    
-
+    margin: 12px 20px 19px 14px;
+    box-shadow:2px 2px 2px 7px whitesmoke;
+    font-size: 12px;
 }
 .greeting-element ul{
     list-style: none;
-
 }
 .greeting-element li{
     padding-top: 10px;
-    padding-bottom: 11px;
+    padding-bottom: 10px;
     
 }
