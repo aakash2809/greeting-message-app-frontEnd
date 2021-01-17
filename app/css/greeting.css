@@ -76,10 +76,11 @@
     margin: -1150px -13px -23px 210px;
 }
 .panels{
-    background-color: rgb(248, 242, 242);
-    height: 1046px;
+    background-color:white;
+    height: 1075px;
     padding: 8px 8px 8px 8px;
     margin: 0px 0px 0px 0px;
+    
 }
 
 .greeting-element{
@@ -89,6 +90,16 @@
     width: 300px;
     padding: 10px 15px 2px 13px;
     margin: 3px 3px 10px 2px;
-    box-shadow:  0px 3px whitesmoke
+    box-shadow:2px 2px 2px 7px whitesmoke
+    
 
+}
+.greeting-element ul{
+    list-style: none;
+
+}
+.greeting-element li{
+    padding-top: 10px;
+    padding-bottom: 11px;
+    
 }
