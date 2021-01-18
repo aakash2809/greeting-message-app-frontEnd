@@ -2,6 +2,13 @@
 *{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+body {
+    overflow-y: hidden; /* Hide vertical scrollbar */
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+  }
+.container{
+    height: 1200px;
+}
 .header{
     background-color:white; 
     width: 1160px;
