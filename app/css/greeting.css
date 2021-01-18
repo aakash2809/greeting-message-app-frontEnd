@@ -2,10 +2,12 @@
 *{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
 body {
     overflow-y: hidden; /* Hide vertical scrollbar */
     overflow-x: hidden; /* Hide horizontal scrollbar */
   }
+
 .container{
     height: 1200px;
 }
@@ -17,10 +19,13 @@ body {
     box-shadow:  0px 3px #f5ecec;
 }
 
+.header ul li{
+    display: inline-block;
+    padding-right: 8px;
+}
 .logo img{ 
     height: 15px;
     width: 15px;
- 
 }
 
 .header-list{
@@ -39,15 +44,16 @@ body {
     padding: 3px 5px;
     text-decoration: none;
 }
+
 .msg-align{
     text-align: left;
     padding-left:8px ;
     list-style: none;
 }
+
 .sign-btn:hover{
     background-color: rgb(36, 151, 197);
 } 
-
 
 /* side bar */
 .side-bar{
@@ -73,11 +79,14 @@ body {
 }
 .side-bar ul li{
     margin-top: 10px;
+    
 }
 
 .side-bar li img{
     height: 15px;
     width: 15px;
+    display: inline-block;
+    padding-right: 20px;
 }
 
 /* panels */
