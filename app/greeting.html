@@ -36,71 +36,18 @@
 
     <div class="panels-container">
       <h3>Basic panels layout</h3>
-
-      <div class="panels">
-        <div class="greeting-element">
-          <ul>
-            <li>dafaoj5465dgkkshfd</li>
-            <li><strong>Hello</strong>(greeting)</li>
-            <li><strong>Parag</strong>(name)</li>
-            <li>15 min ago</li>
-          </ul>
-        </div>
-
-        <div class="greeting-element">
-          <ul>
-            <li>dafaoj5465dgkkshfd</li>
-            <li><strong>Hello</strong>(greeting)</li>
-            <li><strong>Parag</strong>(name)</li>
-            <li>15 min ago</li>
-          </ul>
-        </div>
-
-        <div class="greeting-element">
-          <ul>
-            <li>dafaoj5465dgkkshfd</li>
-            <li><strong>Hello</strong>(greeting)</li>
-            <li><strong>Parag</strong>(name)</li>
-            <li>15 min ago</li>
-          </ul>
-        </div>
-
-        <div class="greeting-element">
-          <ul>
-            <li>dafaoj5465dgkkshfd</li>
-            <li><strong>Hello</strong>(greeting)</li>
-            <li><strong>Parag</strong>(name)</li>
-            <li>15 min ago</li>
-          </ul>
-        </div>
-        <div class="greeting-element">
-          <ul>
-            <li>dafaoj5465dgkkshfd</li>
-            <li><strong>Hello</strong>(greeting)</li>
-            <li><strong>Parag</strong>(name)</li>
-            <li>15 min ago</li>
-          </ul>
-        </div>
-        <div class="greeting-element">
-          <ul>
-            <li>dafaoj5465dgkkshfd</li>
-            <li><strong>Hello</strong>(greeting)</li>
-            <li><strong>Parag</strong>(name)</li>
-            <li>15 min ago</li>
-          </ul>
-        </div>
-        <div class="greeting-element">
-          <ul>
-            <li>dafaoj5465dgkkshfd</li>
-            <li><strong>Hello</strong>(greeting)</li>
-            <li><strong>Parag</strong>(name)</li>
-            <li>15 min ago</li>
-          </ul>
-        </div>
+      <div id="panels">
       </div>
     </div>
   </div>
   </div>
 </body>
-
+<script type="text/javascript">
+  for(let i = 0 ; i < 13 ; i++ ){
+  let greetingElement = document.createElement("div");
+  greetingElement.setAttribute("id", "child-panel");
+  greetingElement.setAttribute("class", "greeting-element");
+  document.getElementById("panels").appendChild(greetingElement);
+      }
+</script>
 </html>
