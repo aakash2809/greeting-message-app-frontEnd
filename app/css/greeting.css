@@ -6,6 +6,7 @@
 body {
     overflow-y: hidden; /* Hide vertical scrollbar */
     overflow-x: hidden; /* Hide horizontal scrollbar */
+  
   }
 
 .container{
@@ -96,9 +97,10 @@ body {
 }
 .panels{
     background-color:white;
-    height: 1075px;
+    height: 500px;
     padding: 8px 8px 8px 8px;
-    margin: 0px 0px 0px 0px;   
+    margin: 0px 50px 0px 0px;   
+    overflow: scroll;
 }
 
 .panels-container h3{
