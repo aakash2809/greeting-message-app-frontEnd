@@ -6,12 +6,12 @@
 body {
     overflow-y: hidden; /* Hide vertical scrollbar */
     overflow-x: hidden; /* Hide horizontal scrollbar */
-  
-  }
+   }
 
 .container{
     height: 1200px;
 }
+
 .header{
     background-color:white; 
     width: 1160px;
@@ -22,8 +22,9 @@ body {
 
 .header ul li{
     display: inline-block;
-    padding-right: 8px;
+    padding-right: 9px;
 }
+
 .logo img{ 
     height: 15px;
     width: 15px;
@@ -42,7 +43,8 @@ body {
     color: skyblue;
     border: solid;
     border-radius: 15px;
-    padding: 3px 5px;
+    padding: 3px 10px;
+    margin: -5px 2px;
     text-decoration: none;
 }
 
@@ -65,11 +67,6 @@ body {
     margin: -59px 123px 1px -66px;
     font-size: 12px;
    
-}
-
-.side-bar a{
-    text-decoration: none;
-    color: black;
 }
 
 .side-bar ul{
