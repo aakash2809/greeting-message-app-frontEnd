@@ -114,3 +114,18 @@ body {
     box-shadow:2px 2px 2px 7px whitesmoke;
     font-size: 12px;
 }
+
+.form-popup {
+    display: none;
+    border: 0px solid lightcoral;
+   border-radius:2px ;
+  }
+  .form-container{
+    border: 2px solid #cec7c7;
+    border-radius: 9px;
+    width: 266px;
+    height: 141px;
+    margin-left: 19px;
+    padding: 0px 0 0 13px;
+  }
+  

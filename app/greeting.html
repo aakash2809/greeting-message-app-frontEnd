@@ -28,7 +28,29 @@
     <div class="side-bar">
       <ul>
         <li><img src="../app/assets/diamond.png"> List</li>
-        <li><img src="../app/assets/dimond-add.png">Add</li>
+        <li id="add" onclick="addNewgreeting()">
+          <img src="../app/assets/dimond-add.png">
+          Add
+        </li>
+        <div class="form-popup" id="myForm">
+          <form action="" class="form-container">
+            <h3>Add Greeting</h3>
+            <table>
+              <tr>
+                <td><b>Name</b></td>
+                <td> <input type="text" placeholder="Enter name" name="name" required></td>
+              </tr>
+              <tr>
+                <td><b>Message</b></td>
+                <td><input type="text" placeholder="Enter  message" name="msg" required></td>
+              </tr>
+              <tr>
+                <td> <button type="submit" class="btn">Save</button></td>
+                <td><button type="button" class="btn cancel" onclick="closeForm()">Close</button></td>
+              </tr>
+            </table>
+          </form>
+        </div>
         <li><img src="../app/assets/edit.png"> Edit </li>
         <li><img src="../app/assets/delete.png">delete </li>
       </ul>
@@ -41,10 +63,21 @@
       </div>
     </div>
   </div>
-
   </div>
 
+
+
 </body>
+
+<script>
+  addNewgreeting = () => {
+    document.getElementById("myForm").style.display = "block";
+  }
+  function closeForm() {
+    document.getElementById("myForm").style.display = "none";
+  }
+</script>
+
 <script src="./greeetingFetchAPI.js"></script>
 
 </html>

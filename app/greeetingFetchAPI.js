@@ -16,7 +16,28 @@ getAllGreetings = () => {
            </div>`
         })
         document.querySelector("#app").insertAdjacentHTML("afterbegin", html);
-    }).catch((err) => console.log("Can’t access " + url));
+    }).catch((err) => console.log(err));
+}
+
+postGreeting = () => {
+    url = 'http://localhost:2000/addGreeting'
+    fetch(url, {
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        method: "POST",
+        body: JSON.stringify({name: "Aissu", message: "Hreerrrp"})
+    }).then((response) => {
+        console.log(response);
+        return response.json();
+    }).then((greetingData) => {
+        console.log("second then");
+        console.log(greetingData);
+    }).catch((err)=>{
+        console.log(err) ;
+    })
 }
 
 getAllGreetings();
+postGreeting();
