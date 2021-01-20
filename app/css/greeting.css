@@ -120,12 +120,13 @@ body {
     border: 0px solid lightcoral;
    border-radius:2px ;
   }
-  .form-container{
+  .formContainer{
     border: 2px solid #cec7c7;
     border-radius: 9px;
     width: 266px;
     height: 175px;
     margin-left: 19px;
     padding: 0px 0 0 13px;
+    align-content: center;
   }
   

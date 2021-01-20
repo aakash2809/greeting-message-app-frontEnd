@@ -33,7 +33,7 @@
           Add
         </li>
         <div class="form-popup" id="addGreetingForm">
-          <form action="" class="form-container">
+          <form action="" class="formContainer">
             <h3>Add Greeting</h3>
             <table>
               <tr>
@@ -55,7 +55,7 @@
           <img src="../app/assets/edit.png"> Edit
         </li>
         <div class="form-popup" id="editGreetingForm">
-          <form action="" class="form-container">
+          <form action="" class="formContainer">
             <h3>Edit Greeting</h3>
             <table>
               <tr>
@@ -78,7 +78,27 @@
             </table>
           </form>
         </div>
-        <li><img src="../app/assets/delete.png">delete </li>
+        <li onclick="deleteGreeting()">
+          <img src="../app/assets/delete.png">
+          delete
+        </li>
+        <div class="form-popup" id="deleteGreetingForm">
+          <form action="" class="formContainer">
+            <h3>Delete Greeting</h3>
+            <table>
+              <tr>
+                <td><b>Greeting Id</b></td>
+              <tr>
+              <tr>
+                <td><input type="text" placeholder="Enter Greeing Id" name="id" required></td>
+              </tr>
+              <tr>
+                <td> <button type="submit" class="btn">Delete</button></td>
+                <td><button type="button" class="btnCancel" onclick="closeDeleteForm()">Close</button></td>
+              </tr>
+            </table>
+          </form>
+        </div>
       </ul>
     </div>
 
@@ -108,6 +128,15 @@
   }
   function closeForm() {
     document.getElementById("editGreetingForm").style.display = "none";
+  }
+</script>
+
+<script>
+  deleteGreeting = () => {
+    document.getElementById("deleteGreetingForm").style.display = "block";
+  }
+  function closeDeleteForm() {
+    document.getElementById("deleteGreetingForm").style.display = "none";
   }
 </script>
 
