@@ -114,11 +114,3 @@ body {
     box-shadow:2px 2px 2px 7px whitesmoke;
     font-size: 12px;
 }
-.greeting-element ul{
-    list-style: none;
-}
-.greeting-element li{
-    padding-top: 10px;
-    padding-bottom: 10px;
-    
-}
