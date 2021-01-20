@@ -40,4 +40,4 @@ postGreeting = () => {
 }
 
 getAllGreetings();
-postGreeting();
+//postGreeting();
