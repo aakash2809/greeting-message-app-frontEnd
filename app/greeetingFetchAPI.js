@@ -27,12 +27,11 @@ postGreeting = () => {
           'Content-Type': 'application/json'
         },
         method: "POST",
-        body: JSON.stringify({name: "Aissu", message: "Hreerrrp"})
+        body: JSON.stringify({name: "Sandeep", message: "Hello"})
     }).then((response) => {
         console.log(response);
         return response.json();
     }).then((greetingData) => {
-        console.log("second then");
         console.log(greetingData);
     }).catch((err)=>{
         console.log(err) ;
