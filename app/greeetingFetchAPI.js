@@ -9,10 +9,11 @@ getAllGreetings = () => {
     }).then((greetingData) => {
         const html = greetingData.data.map(greeting => {
             return `<div class="greeting-element">
-            <pre>GreetingId:${greeting._id}</pre>
             <pre>Name:${greeting.name}</pre>
             <pre>Message:${greeting.message}</pre>
             <pre>Created At:${greeting.createdAt}</pre>
+            <button type="submit" class="btn">Edit</button>
+            <button type="submit" class="btn">Delete</button>
            </div>`
         })
         document.querySelector("#app").insertAdjacentHTML("afterbegin", html);
@@ -23,18 +24,18 @@ postGreeting = () => {
     url = 'http://localhost:2000/addGreeting'
     fetch(url, {
         headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
         },
         method: "POST",
-        body: JSON.stringify({name: "Sandeep", message: "Hello"})
+        body: JSON.stringify({ name: "Sandeep", message: "Hello" })
     }).then((response) => {
         console.log(response);
         return response.json();
     }).then((greetingData) => {
         console.log(greetingData);
-    }).catch((err)=>{
-        console.log(err) ;
+    }).catch((err) => {
+        console.log(err);
     })
 }
 

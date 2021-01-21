@@ -122,6 +122,7 @@ body {
   }
   .formContainer{
     border: 2px solid #cec7c7;
+    background-color: burlywood;
     border-radius: 9px;
     width: 266px;
     height: 175px;
