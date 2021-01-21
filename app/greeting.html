@@ -12,7 +12,6 @@
       <div>
         <li class="msg-align">Greeting App</li>
         <ul class="header-list">
-
           <li class="logo"><img src="../app/assets/bell.png"> <select class="logo">
             </select> </li>
           <li class="logo"><img src="../app/assets/mail.png"></li>
@@ -32,25 +31,7 @@
           <img src="../app/assets/dimond-add.png">
           Add
         </li>
-        <div class="form-popup" id="addGreetingForm">
-          <form action="" class="formContainer">
-            <h3>Add Greeting</h3>
-            <table>
-              <tr>
-                <td><b>Name</b></td>
-                <td> <input type="text" placeholder="Enter name" name="name" required></td>
-              </tr>
-              <tr>
-                <td><b>Message</b></td>
-                <td><input type="text" placeholder="Enter  message" name="msg" required></td>
-              </tr>
-              <tr>
-                <td> <button type="submit" class="btn">Save</button></td>
-                <td><button type="button" class="btn cancel" onclick="closeAddGreetingForm()">Close</button></td>
-              </tr>
-            </table>
-          </form>
-        </div>
+       
         <li onclick="editGreeting()">
           <img src="../app/assets/edit.png"> Edit
         </li>
@@ -104,6 +85,25 @@
 
     <div class="panels-container">
       <h3>Basic panels layout</h3>
+      <div class="form-popup" id="addGreetingForm">
+        <form action="postGreeting()" id ="addGreeting" class="formContainer">
+          <h3>Add Greeting</h3>
+          <table>
+            <tr>
+              <td><b>Name</b></td>
+              <td> <input type="text" placeholder="Enter name" id="name" required></td>
+            </tr>
+            <tr>
+              <td><b>Message</b></td>
+              <td><input type="text" placeholder="Enter  message" id="msg" required></td>
+            </tr>
+            <tr>
+              <td> <button type="submit" class="btn">Save</button></td>
+              <td><button type="button" class="btn cancel" onclick="closeAddGreetingForm()">Close</button></td>
+            </tr>
+          </table>
+        </form>
+      </div>
       <div class="panels">
         <div id="app"></div>
       </div>
