@@ -5,15 +5,17 @@
 getAllGreetings = () => {
     url = 'http://localhost:2000/allGreetings'
     fetch(url).then((response) => {
-        return response.json();
+        console.log(response);
+        return response.json();    
     }).then((greetingData) => {
+        console.log(greetingData);
         const html = greetingData.data.map(greeting => {
             return `<div class="greeting-element">
-            <pre>Name:${greeting.name}</pre>
-            <pre>Message:${greeting.message}</pre>
-            <pre>Created At:${greeting.createdAt}</pre>
-            <button type="submit" class="btn" onclick='prompt()'>Edit</button>
-            <button type="submit" class="btn" onclick="confirm('Delete Greeting?')">Delete</button>
+            <pre>${greeting.name}</pre>
+            <pre>${greeting.message}</pre>
+            <pre>${greeting.time}</pre>
+            <img src="../app/assets/edit.png" class="panel-icon" onclick='prompt()'>
+            <img  src="../app/assets/trash.png" class="panel-icon" onclick="confirm('Delete Greeting?')">
            </div>`
         })
         document.querySelector("#app").insertAdjacentHTML("afterbegin", html);

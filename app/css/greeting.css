@@ -122,7 +122,7 @@ body {
   }
   .formContainer{
     border: 2px solid #cec7c7;
-    background-color:rgb(240, 231, 231);
+    background-color:white;
     border-radius: 9px;
     width: 266px;
     height: 175px;
@@ -130,4 +130,9 @@ body {
     padding: 0px 0 0 13px;
     align-content: center;
   }
-  
+  .panel-icon{
+    height: 15px;
+    width: 15px;
+    display: inline-block;
+    padding-right: 20px;
+  }
