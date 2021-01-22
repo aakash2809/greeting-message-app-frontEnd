@@ -90,7 +90,7 @@ body {
 /* panels */
 .panels-container{
     padding: 0px 0px 0px 100px;
-    margin: -1150px -13px -23px 210px;
+    margin: -1140px -13px -23px 165px;
 }
 .panels{
     background-color:white;
@@ -122,7 +122,7 @@ body {
   }
   .formContainer{
     border: 2px solid #cec7c7;
-    background-color: burlywood;
+    background-color:rgb(240, 231, 231);
     border-radius: 9px;
     width: 266px;
     height: 175px;
