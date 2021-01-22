@@ -8,8 +8,10 @@ getAllGreetings = () => {
         console.log(response);
         return response.json();    
     }).then((greetingData) => {
-        console.log(greetingData);
-        const html = greetingData.data.map(greeting => {
+      // const allGreeting = greetingData.data
+      greetingData.data.reverse();
+       //allGreeting.reverse();
+       const html = greetingData.data.map(greeting => {
             return `<div class="greeting-element">
             <pre>${greeting.name}</pre>
             <pre>${greeting.message}</pre>

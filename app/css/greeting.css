@@ -114,7 +114,9 @@ body {
     box-shadow:2px 2px 2px 7px whitesmoke;
     font-size: 12px;
 }
-
+.greeting-element pre{
+    padding-left: 0px;
+}
 .form-popup {
     display: none;
     border: 0px solid lightcoral;
@@ -134,5 +136,5 @@ body {
     height: 15px;
     width: 15px;
     display: inline-block;
-    padding-right: 20px;
+    padding-right: 105px;
   }
