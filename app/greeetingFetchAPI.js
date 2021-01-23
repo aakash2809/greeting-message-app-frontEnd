@@ -6,16 +6,14 @@ getAllGreetings = () => {
     url = 'http://localhost:2000/allGreetings'
     fetch(url).then((response) => {
         console.log(response);
-        return response.json();    
+        return response.json();
     }).then((greetingData) => {
-      // const allGreeting = greetingData.data
-      greetingData.data.reverse();
-       //allGreeting.reverse();
-       const html = greetingData.data.map(greeting => {
+        greetingData.data.reverse();
+        const html = greetingData.data.map(greeting => {
             return `<div class="greeting-element">
             <pre>${greeting.name}</pre>
             <pre>${greeting.message}</pre>
-            <pre>${greeting.time}</pre>
+            <pre>${(greeting.createdAt).substring(0, 10)}</pre>
             <img src="../app/assets/edit.png" class="panel-icon" onclick='prompt()'>
             <img  src="../app/assets/trash.png" class="panel-icon" onclick="confirm('Delete Greeting?')">
            </div>`
@@ -24,14 +22,13 @@ getAllGreetings = () => {
     }).catch((err) => console.log(err));
 }
 
-
 postGreeting = () => {
     document.getElementById('addGreeting').addEventListener('submit', (e) => {
-        
-       var name = document.getElementById('name').value;
-       var message = document.getElementById('msg').value;
-       console.log(name);
-       console.log(message);
+
+        var name = document.getElementById('name').value;
+        var message = document.getElementById('msg').value;
+        console.log(name);
+        console.log(message);
         console.log(e.target);//console actual form 
         url = 'http://localhost:2000/addGreeting'
         fetch(url, {
@@ -40,7 +37,7 @@ postGreeting = () => {
                 'Content-Type': 'application/json'
             },
             method: "POST",
-            body: JSON.stringify({ name:name , message: message }),
+            body: JSON.stringify({ name: name, message: message }),
         }).then((response) => {
             console.log(response);
             return response.json();
