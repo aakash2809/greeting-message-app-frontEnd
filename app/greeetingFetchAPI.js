@@ -1,11 +1,9 @@
-
 /**
- * Get all available greetings
+ * @description Get all available greetings
 */
 getAllGreetings = () => {
     url = 'http://localhost:2000/allGreetings'
     fetch(url).then((response) => {
-        console.log(response);
         return response.json();
     }).then((greetingData) => {
         greetingData.data.reverse();
@@ -22,14 +20,13 @@ getAllGreetings = () => {
     }).catch((err) => console.log(err));
 }
 
+/**
+ * @description POST greeting (data post by popup form)
+*/
 postGreeting = () => {
     document.getElementById('addGreeting').addEventListener('submit', (e) => {
-
         var name = document.getElementById('name').value;
         var message = document.getElementById('msg').value;
-        console.log(name);
-        console.log(message);
-        console.log(e.target);//console actual form 
         url = 'http://localhost:2000/addGreeting'
         fetch(url, {
             headers: {
@@ -39,7 +36,6 @@ postGreeting = () => {
             method: "POST",
             body: JSON.stringify({ name: name, message: message }),
         }).then((response) => {
-            console.log(response);
             return response.json();
         }).then((greetingData) => {
             console.log(greetingData);

@@ -12,51 +12,48 @@ body {
     height: 1200px;
 }
 
-.header{
+.headerNav{
     background-color:white; 
     width: 1160px;
     height: 48px;
     margin-left: 180px;
-    box-shadow:  0px 3px #f5ecec;
+    box-shadow:  0px 9px #d8d5d5;
 }
-
-.header ul li{
-    display: inline-block;
-    padding-right: 9px;
+.headerList{
+    background:white;
+    margin: 0;
+    padding:1rem 0;
+    border-radius: var(--radius);
+    display: flex;
+    justify-content: flex-end;
+    font-size: 12px
 }
-
-.logo img{ 
-    height: 15px;
-    width: 15px;
-}
-
-.header-list{
+.listItem{
     list-style: none;
-    display: inline-flex;
-    margin-top: 10px;
-    padding: 2px 0px 2px 72px;; 
-    margin: -13px 2px -11px 710px;
-    font-size: 12px;
+    margin-right: 2rem;
+    
 }
-
-.sign-btn{
+.listItem:first-child{
+    margin-right: auto;
+    margin-left: 2rem;
+    font-size: 20px;
+}
+#signBtn{
     color: skyblue;
     border: solid;
     border-radius: 15px;
-    padding: 3px 10px;
-    margin: -5px 2px;
+    padding: 3px 15px;
+    margin: -5px 12px;
     text-decoration: none;
 }
-
-.msg-align{
-    text-align: left;
-    padding-left:8px ;
-    list-style: none;
-}
-
-.sign-btn:hover{
+#signBtn:hover{
     background-color: rgb(36, 151, 197);
 } 
+
+.listItem img{ 
+    height: 15px;
+    width: 15px;
+}
 
 /* side bar */
 .side-bar{
@@ -100,7 +97,7 @@ body {
     overflow: scroll;
 }
 
-.panels-container h3{
+.panels-container pre{
     padding-left: 18px;
 }
 
@@ -117,10 +114,7 @@ body {
 .greeting-element pre{
     padding-left: 0px;
 }
-.form-popup {
-    /* display: none;
-    border: 0px solid lightcoral;
-   border-radius:2px ; */
+.form-popup { 
    width: 100%;
     height: 100%;
     background-color:rgba(0 ,0 ,0, 0.7);
@@ -149,7 +143,7 @@ body {
     height: 15px;
     width: 15px;
     display: inline-block;
-    padding-right: 105px;
+    padding-left: 105px;
   }
   .btn{
       margin-left: -140px;
