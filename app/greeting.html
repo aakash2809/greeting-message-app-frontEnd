@@ -26,7 +26,7 @@
     <div class="side-bar">
       <ul>
         <li><img src="../app/assets/diamond.png"> List</li>
-        <li id="add" onclick="addNewgreeting()">
+        <li  id="addNewgreeting">
           <img src="../app/assets/pen.png">
           Add
         </li>
@@ -42,7 +42,7 @@
               </tr>
               <tr>
                 <td> <button type="submit" class="btn">Save</button></td>
-                <td><button type="button" class="btn" onclick="closeAddGreetingForm()">Close</button></td>
+                <td><button type="button" id="closeAddGreetingForm" class="btn" >Close</button></td>
               </tr>
             </table>
           </form>
@@ -69,12 +69,15 @@
 </body>
 
 <script>
-  addNewgreeting = () => {
-    document.getElementById("addGreetingForm").style.display = "block";
-  }
-  function closeAddGreetingForm() {
-    document.getElementById("addGreetingForm").style.display = "none";
-  }
+  
+    document.getElementById("addNewgreeting").addEventListener('click',()=>{
+      document.querySelector('.form-popup').style.display = 'flex';
+    })
+ 
+    document.getElementById("closeAddGreetingForm").addEventListener('click',()=>{
+      document.querySelector('.form-popup').style.display = 'none';
+    })
+ 
 </script>
 
 <script src="./greeetingFetchAPI.js"></script>
