@@ -23,6 +23,14 @@ document.getElementById("closeUpdateGreetingForm").addEventListener('click', () 
     document.querySelector('.update-form-popup').style.display = 'none';
 })
 
+document.getElementById("addNewgreeting").addEventListener('click', () => {
+    document.querySelector('.form-popup').style.display = 'flex';
+  })
+
+  document.getElementById("closeAddGreetingForm").addEventListener('click', () => {
+    document.querySelector('.form-popup').style.display = 'none';
+  })
+
 /**
  * @description Get all available greetings
 */
@@ -31,7 +39,6 @@ getAllGreetings = () => {
     fetch(url).then((response) => {
         return response.json();
     }).then((greetingData) => {
-        console.log(greetingData.data);
         greetingData.data.reverse();
         const html = greetingData.data.map(greeting => {
             return `<div class="greeting-element">
@@ -72,6 +79,9 @@ postGreeting = () => {
     })
 }
 
+/**
+ * @description delete greeting requested from greeting panel
+*/
 deleteGreeting = (greetingId) => {
     let id = greetingId;
     url = `${serverUrl}/greeting/${id}`;
@@ -91,6 +101,9 @@ deleteGreeting = (greetingId) => {
     })
 }
 
+/**
+ * @description update greeting requested from greeting panel
+*/
 updateGreeting = (greetingId) => {
     document.getElementById('updateGreeting').addEventListener('submit', (e) => {
         var name = document.getElementById('updateName').value;      
@@ -114,7 +127,7 @@ updateGreeting = (greetingId) => {
     })
  })
 }
+
 getAllGreetings();
 postGreeting();
-//deleteGreeting();
-//updateGreeting();
+
