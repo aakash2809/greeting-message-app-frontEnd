@@ -8,7 +8,6 @@
 
 <body>
   <div class="container">
-
     <div class="headerNav">
       <ul class="headerList">
         <li class="listItem"><strong>Greeting App</strong></li>
@@ -26,12 +25,12 @@
     <div class="side-bar">
       <ul>
         <li><img src="../app/assets/diamond.png"> List</li>
-        <li  id="addNewgreeting">
+        <li id="addNewgreeting">
           <img src="../app/assets/pen.png">
           Add
         </li>
         <div class="form-popup" id="addGreetingForm" style="display:none">
-          <form id="addGreeting" class="formContainer">
+          <form class="formContainer">
             <h3>Add Greeting</h3>
             <table>
               <tr>
@@ -42,7 +41,7 @@
               </tr>
               <tr>
                 <td> <button type="submit" class="btn">Save</button></td>
-                <td><button type="button" id="closeAddGreetingForm" class="btn" >Close</button></td>
+                <td><button type="button" id="closeAddGreetingForm" class="btn">Close</button></td>
               </tr>
             </table>
           </form>
@@ -66,18 +65,31 @@
   </div>
   </div>
 
+  <div class="delete-form-popup" id="deleteGreetingForm" style="display:none">
+    <form class="formContainer">
+      <h3>Delete Greeting</h3>
+      <table>
+        <tr>
+          <td>
+            <pre> Are you sure...?<pre></td>
+        </tr>           
+        <tr>
+          <td> <button type="submit" class="btn">Yes</button></td>
+          <td><button type="button" id="closeDeleteGreetingForm" class="btn" >No</button></td>
+        </tr>
+      </table>
+    </form>
+
 </body>
 
 <script>
-  
-    document.getElementById("addNewgreeting").addEventListener('click',()=>{
-      document.querySelector('.form-popup').style.display = 'flex';
-    })
- 
-    document.getElementById("closeAddGreetingForm").addEventListener('click',()=>{
-      document.querySelector('.form-popup').style.display = 'none';
-    })
- 
+  document.getElementById("addNewgreeting").addEventListener('click', () => {
+    document.querySelector('.form-popup').style.display = 'flex';
+  })
+
+  document.getElementById("closeAddGreetingForm").addEventListener('click', () => {
+    document.querySelector('.form-popup').style.display = 'none';
+  })
 </script>
 
 <script src="./greeetingFetchAPI.js"></script>

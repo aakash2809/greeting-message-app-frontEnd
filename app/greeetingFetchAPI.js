@@ -1,5 +1,13 @@
 const serverUrl = 'http://localhost:2000';
 
+delGreeting = () => {
+    document.querySelector('.delete-form-popup').style.display = 'flex';
+}
+
+document.getElementById("closeDeleteGreetingForm").addEventListener('click', () => {
+    document.querySelector('.delete-form-popup').style.display = 'none';
+})
+
 /**
  * @description Get all available greetings
 */
@@ -15,10 +23,11 @@ getAllGreetings = () => {
             <pre>${greeting.name}</pre>
             <pre>${greeting.message}</pre>
             <pre>${(greeting.createdAt).substring(0, 10)}</pre>
-            <img src="../app/assets/edit.png" class="panel-icon" onclick='prompt()'>
-            <img  src="../app/assets/trash.png" class="panel-icon" onclick="confirm('Delete Greeting?')">
+            <img src="../app/assets/edit.png" id="" class="panel-icon" >
+            <img  src="../app/assets/trash.png" id="a" class="panel-icon" onclick="delGreeting()">
            </div>`
         })
+
         document.querySelector("#app").insertAdjacentHTML("afterbegin", html);
     }).catch((err) => console.log(err));
 }
@@ -51,42 +60,42 @@ postGreeting = () => {
 
 deleteGreeting = () => {
     let id = '600c2226a717ad0c682a65bf'
-        url = `${serverUrl}/greeting/${id}`;
-        fetch(url, {
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            method: "DELETE",
-        }).then((response) => {
-            console.log(response)
-            return response.json();
-        }).then((greetingData) => {
-            console.log(greetingData);
-        }).catch((err) => {
-            console.log(err);
-        })
+    url = `${serverUrl}/greeting/${id}`;
+    fetch(url, {
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        method: "DELETE",
+    }).then((response) => {
+        console.log(response)
+        return response.json();
+    }).then((greetingData) => {
+        console.log(greetingData);
+    }).catch((err) => {
+        console.log(err);
+    })
 }
 
 updateGreeting = () => {
     let id = '600bacb3a717ad0c682a65b'
-        url = `${serverUrl}/updateGreeting/${id}`;
+    url = `${serverUrl}/updateGreeting/${id}`;
 
-        fetch(url, {
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            method: "PUT",
-            body: JSON.stringify({ name: 'Hrithik', message: 'Hello' }),
-        }).then((response) => {
-            console.log(response)
-            return response.json();
-        }).then((greetingData) => {
-            console.log(greetingData);
-        }).catch((err) => {
-            console.log(err);
-        })
+    fetch(url, {
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        method: "PUT",
+        body: JSON.stringify({ name: 'Hrithik', message: 'Hello' }),
+    }).then((response) => {
+        console.log(response)
+        return response.json();
+    }).then((greetingData) => {
+        console.log(greetingData);
+    }).catch((err) => {
+        console.log(err);
+    })
 }
 getAllGreetings();
 //postGreeting();
