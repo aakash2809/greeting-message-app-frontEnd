@@ -4,8 +4,16 @@ delGreeting = () => {
     document.querySelector('.delete-form-popup').style.display = 'flex';
 }
 
+putGreeting = () => {
+    document.querySelector('.update-form-popup').style.display = 'flex';
+}
+
 document.getElementById("closeDeleteGreetingForm").addEventListener('click', () => {
     document.querySelector('.delete-form-popup').style.display = 'none';
+})
+
+document.getElementById("closeUpdateGreetingForm").addEventListener('click', () => {
+    document.querySelector('.update-form-popup').style.display = 'none';
 })
 
 /**
@@ -23,7 +31,7 @@ getAllGreetings = () => {
             <pre>${greeting.name}</pre>
             <pre>${greeting.message}</pre>
             <pre>${(greeting.createdAt).substring(0, 10)}</pre>
-            <img src="../app/assets/edit.png" id="" class="panel-icon" >
+            <img src="../app/assets/edit.png" id="" class="panel-icon" onclick="putGreeting()">
             <img  src="../app/assets/trash.png" id="a" class="panel-icon" onclick="delGreeting()">
            </div>`
         })
