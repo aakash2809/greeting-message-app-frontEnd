@@ -45,7 +45,6 @@ getAllGreetings = () => {
 */
 postGreeting = () => {
     document.getElementById('addGreeting').addEventListener('submit', (e) => {
-        e.preventDefault();
         var name = document.getElementById('name').value;
         var message = document.getElementById('msg').value;
         url = `${serverUrl}/addGreeting`;
@@ -106,6 +105,6 @@ updateGreeting = () => {
     })
 }
 getAllGreetings();
-//postGreeting();
+postGreeting();
 //deleteGreeting();
 //updateGreeting();

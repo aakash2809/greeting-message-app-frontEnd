@@ -29,23 +29,7 @@
           <img src="../app/assets/pen.png">
           Add
         </li>
-        <div class="form-popup" id="addGreetingForm" style="display:none">
-          <form class="formContainer">
-            <h3>Add Greeting</h3>
-            <table>
-              <tr>
-                <td> <input type="text" placeholder="Enter name" id="name" required></td>
-              </tr>
-              <tr>
-                <td><input type="text" placeholder="Enter  message" id="msg" required></td>
-              </tr>
-              <tr>
-                <td> <button type="submit" class="btn">Save</button></td>
-                <td><button type="button" id="closeAddGreetingForm" class="btn">Close</button></td>
-              </tr>
-            </table>
-          </form>
-        </div>
+        
         <li>
           <img src="../app/assets/edit.png"> Edit
         </li>
@@ -63,6 +47,26 @@
       </div>
     </div>
   </div>
+  </div>
+
+  <div class="form-popup" id="addGreetingForm" style="display:none">
+    <form id="addGreeting" class="formContainer">
+      <h3>Add Greeting</h3>
+      <table>
+        <tr>
+          <td> <input type="text" placeholder="Enter name" id="name" required 
+                      pattern="[A-Z]{1}[a-zA-Z ]{2,}"></td>
+        </tr>
+        <tr>
+          <td><input type="text" placeholder="Enter message" id="msg" 
+                     required pattern="[A-Z]{1}[a-zA-Z ]{2,}"></td>
+        </tr>
+        <tr>
+          <td> <button type="submit" class="btn">Save</button></td>
+          <td><button type="button" id="closeAddGreetingForm" class="btn">Close</button></td>
+        </tr>
+      </table>
+    </form>
   </div>
 
   <div class="delete-form-popup" id="deleteGreetingForm" style="display:none">
