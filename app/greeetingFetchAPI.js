@@ -1,9 +1,16 @@
 const serverUrl = 'http://localhost:2000';
 
-delGreeting = () => {
+delGreeting = (greetingId) => {
+    //console.log(greetingId);
+    //deleteGreeting(greetingId);
     document.querySelector('.delete-form-popup').style.display = 'flex';
+    document.getElementById("deleteRecord").addEventListener('click',()=>{
+        deleteGreeting(greetingId);
+    });
 }
-
+function a(){
+    console.log("hi");
+}
 putGreeting = () => {
     document.querySelector('.update-form-popup').style.display = 'flex';
 }
@@ -32,7 +39,7 @@ getAllGreetings = () => {
             <pre>${greeting.message}</pre>
             <pre>${(greeting.createdAt).substring(0, 10)}</pre>
             <img src="../app/assets/edit.png" id="" class="panel-icon" onclick="putGreeting()">
-            <img  src="../app/assets/trash.png" id="a" class="panel-icon" onclick="delGreeting()">
+            <img  src="../app/assets/trash.png" id="a" class="panel-icon" onclick="delGreeting('${greeting._id}')">
            </div>`
         })
 
@@ -65,8 +72,8 @@ postGreeting = () => {
     })
 }
 
-deleteGreeting = () => {
-    let id = '600c2226a717ad0c682a65bf'
+deleteGreeting = (greetingId) => {
+    let id = greetingId;
     url = `${serverUrl}/greeting/${id}`;
     fetch(url, {
         headers: {

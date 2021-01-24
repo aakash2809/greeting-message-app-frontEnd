@@ -78,7 +78,7 @@
             <pre> Are you sure...?<pre></td>
         </tr>           
         <tr>
-          <td> <button type="submit" class="btn">Yes</button></td>
+          <td> <button type="submit" id="deleteRecord" class="btn">Yes</button></td>
           <td><button type="button" id="closeDeleteGreetingForm" class="btn" >No</button></td>
         </tr>
       </table>
@@ -113,6 +113,10 @@
   document.getElementById("closeAddGreetingForm").addEventListener('click', () => {
     document.querySelector('.form-popup').style.display = 'none';
   })
+
+  validateForm = () =>{
+    var name = "";
+  }
 </script>
 
 <script src="./greeetingFetchAPI.js"></script>
