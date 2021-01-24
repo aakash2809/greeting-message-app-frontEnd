@@ -1,19 +1,19 @@
 const serverUrl = 'http://localhost:2000';
 
 delGreeting = (greetingId) => {
-    //console.log(greetingId);
-    //deleteGreeting(greetingId);
     document.querySelector('.delete-form-popup').style.display = 'flex';
     document.getElementById("deleteRecord").addEventListener('click',()=>{
         deleteGreeting(greetingId);
     });
 }
-function a(){
-    console.log("hi");
-}
-putGreeting = () => {
+
+putGreeting = (greetingId) => {
     document.querySelector('.update-form-popup').style.display = 'flex';
-}
+    console.log(document.getElementById("updateRecord"));
+    document.getElementById("updateRecord").addEventListener('click',()=>{
+        updateGreeting(greetingId);
+    });
+ }
 
 document.getElementById("closeDeleteGreetingForm").addEventListener('click', () => {
     document.querySelector('.delete-form-popup').style.display = 'none';
@@ -38,7 +38,7 @@ getAllGreetings = () => {
             <pre>${greeting.name}</pre>
             <pre>${greeting.message}</pre>
             <pre>${(greeting.createdAt).substring(0, 10)}</pre>
-            <img src="../app/assets/edit.png" id="" class="panel-icon" onclick="putGreeting()">
+            <img src="../app/assets/edit.png" id="" class="panel-icon" onclick="putGreeting('${greeting._id}')">
             <img  src="../app/assets/trash.png" id="a" class="panel-icon" onclick="delGreeting('${greeting._id}')">
            </div>`
         })
@@ -91,17 +91,19 @@ deleteGreeting = (greetingId) => {
     })
 }
 
-updateGreeting = () => {
-    let id = '600bacb3a717ad0c682a65b'
+updateGreeting = (greetingId) => {
+    document.getElementById('updateGreeting').addEventListener('submit', (e) => {
+        var name = document.getElementById('updateName').value;      
+        var message = document.getElementById('updateMsg').value;       
+    let id = greetingId;
     url = `${serverUrl}/updateGreeting/${id}`;
-
     fetch(url, {
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
         method: "PUT",
-        body: JSON.stringify({ name: 'Hrithik', message: 'Hello' }),
+        body: JSON.stringify({ name: name, message: message }),
     }).then((response) => {
         console.log(response)
         return response.json();
@@ -110,6 +112,7 @@ updateGreeting = () => {
     }).catch((err) => {
         console.log(err);
     })
+ })
 }
 getAllGreetings();
 postGreeting();
