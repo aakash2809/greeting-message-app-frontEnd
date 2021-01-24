@@ -1,11 +1,14 @@
+const serverUrl = 'http://localhost:2000';
+
 /**
  * @description Get all available greetings
 */
 getAllGreetings = () => {
-    url = 'http://localhost:2000/allGreetings'
+    url = `${serverUrl}/allGreetings`;
     fetch(url).then((response) => {
         return response.json();
     }).then((greetingData) => {
+        console.log(greetingData.data);
         greetingData.data.reverse();
         const html = greetingData.data.map(greeting => {
             return `<div class="greeting-element">
@@ -25,9 +28,10 @@ getAllGreetings = () => {
 */
 postGreeting = () => {
     document.getElementById('addGreeting').addEventListener('submit', (e) => {
+        e.preventDefault();
         var name = document.getElementById('name').value;
         var message = document.getElementById('msg').value;
-        url = 'http://localhost:2000/addGreeting'
+        url = `${serverUrl}/addGreeting`;
         fetch(url, {
             headers: {
                 'Accept': 'application/json',
@@ -45,5 +49,46 @@ postGreeting = () => {
     })
 }
 
+deleteGreeting = () => {
+    let id = '600c2226a717ad0c682a65bf'
+        url = `${serverUrl}/greeting/${id}`;
+        fetch(url, {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            method: "DELETE",
+        }).then((response) => {
+            console.log(response)
+            return response.json();
+        }).then((greetingData) => {
+            console.log(greetingData);
+        }).catch((err) => {
+            console.log(err);
+        })
+}
+
+updateGreeting = () => {
+    let id = '600bacb3a717ad0c682a65b'
+        url = `${serverUrl}/updateGreeting/${id}`;
+
+        fetch(url, {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            method: "PUT",
+            body: JSON.stringify({ name: 'Hrithik', message: 'Hello' }),
+        }).then((response) => {
+            console.log(response)
+            return response.json();
+        }).then((greetingData) => {
+            console.log(greetingData);
+        }).catch((err) => {
+            console.log(err);
+        })
+}
 getAllGreetings();
-postGreeting();
+//postGreeting();
+//deleteGreeting();
+updateGreeting();
