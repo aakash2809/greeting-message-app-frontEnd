@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
 
+<html>
+  
 <head>
   <title>Greeting App</title>
   <link rel="stylesheet" href='../app/css/greeting.css'>
@@ -29,7 +30,7 @@
           <img src="../app/assets/pen.png">
           Add
         </li>
-        
+
         <li>
           <img src="../app/assets/edit.png"> Edit
         </li>
@@ -50,16 +51,16 @@
   </div>
 
   <div class="form-popup" id="addGreetingForm" style="display:none">
-    <form id="addGreeting" class="formContainer">
+    <form id="addGreeting" class="formContainer" >
       <h3>Add Greeting</h3>
       <table>
         <tr>
-          <td> <input type="text" placeholder="Enter name" id="name" required 
-                      pattern="[A-Z]{1}[a-zA-Z ]{2,}" autocomplete="off"></td>
+          <td> <input type="text" placeholder="Enter name" id="name" required pattern="[A-Z]{1}[a-zA-Z ]{2,}"
+              autocomplete="off"></td>
         </tr>
         <tr>
-          <td><input type="text" placeholder="Enter message" id="msg" 
-                     required pattern="[A-Z]{1}[a-zA-Z ]{2,}" autocomplete="off"></td>
+          <td><input type="text" placeholder="Enter message" id="msg" required pattern="[A-Z]{1}[a-zA-Z ]{2,}"
+              autocomplete="off"></td>
         </tr>
         <tr>
           <td> <button type="submit" class="btn">Save</button></td>
@@ -90,10 +91,10 @@
           <h3>Update Greeting</h3>
           <table>
             <tr>
-              <td> <input type="text" placeholder="Enter name" id="updateName" required autocomplete="off"></td>
+              <td> <input type="text" placeholder="Enter name" id="updateName" required pattern="[A-Z]{1}[a-zA-Z ]{2,}" autocomplete="off"></td>
             </tr>
             <tr>
-              <td><input type="text" placeholder="Enter  message" id="updateMsg" required autocomplete="off"></td>
+              <td><input type="text" placeholder="Enter  message" id="updateMsg" required pattern="[A-Z]{1}[a-zA-Z ]{2,}" autocomplete="off"></td>
             </tr>
             <tr>
               <td> <button type="submit" id="updateRecord" class="btn">Save</button></td>
@@ -104,12 +105,6 @@
     </div>
 
 </body>
-
-<script>
-  validateForm = () =>{
-    var name = "";
-  }
-</script>
 
 <script src="./greeetingFetchAPI.js"></script>
 
