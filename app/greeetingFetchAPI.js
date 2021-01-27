@@ -15,8 +15,10 @@ const serverUrl = 'http://localhost:2000';
 */
 delGreeting = (greetingId) => {
     document.querySelector('.delete-form-popup').style.display = 'flex';
-    document.getElementById("deleteRecord").addEventListener('click',()=>{
+    document.getElementById('deleteRecord').addEventListener('click',()=>{
         deleteGreeting(greetingId);
+        document.querySelector('.delete-form-popup').style.display = 'none';
+        alert("greeting has been deleted");
     });
 }
 
@@ -75,8 +77,10 @@ getAllGreetings = () => {
             <pre>${greeting.name}</pre>
             <pre>${greeting.message}</pre>
             <pre>${(greeting.createdAt).substring(0, 10)}</pre>
+            <div class="imgAligner">
             <img src="../app/assets/edit.png" id="" class="panel-icon" onclick="putGreeting('${greeting._id}')">
             <img  src="../app/assets/trash.png" id="a" class="panel-icon" onclick="delGreeting('${greeting._id}')">
+            </div>
            </div>`
         })
 
