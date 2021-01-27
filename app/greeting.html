@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <html>
-  
+
 <head>
   <title>Greeting App</title>
   <link rel="stylesheet" href='../app/css/greeting.css'>
@@ -51,56 +51,32 @@
   </div>
 
   <div class="form-popup" id="addGreetingForm" style="display:none">
-    <form id="addGreeting" class="formContainer" >
+    <form id="addGreeting" class="formContainer">
       <h3>Add Greeting</h3>
-      <table>
-        <tr>
-          <td> <input type="text" placeholder="Enter name" id="name" required pattern="[A-Z]{1}[a-zA-Z ]{2,}"
-              autocomplete="off"></td>
-        </tr>
-        <tr>
-          <td><input type="text" placeholder="Enter message" id="msg" required pattern="[A-Z]{1}[a-zA-Z ]{2,}"
-              autocomplete="off"></td>
-        </tr>
-        <tr>
-          <td> <button type="submit" class="btn">Save</button></td>
-          <td><button type="button" id="closeAddGreetingForm" class="btn">Close</button></td>
-        </tr>
-      </table>
+      <input type="text" placeholder="Enter name" id="name" required pattern="[A-Z]{1}[a-zA-Z ]{2,}" autocomplete="off">
+      <input type="text" placeholder="Enter message" id="msg" required pattern="[A-Z]{1}[a-zA-Z ]{2,}"
+        autocomplete="off">
+      <button type="submit" class="btn">Save</button></td>
+      <button type="button" id="closeAddGreetingForm" class="btn">Close</button>
     </form>
   </div>
 
   <div class="delete-form-popup" id="deleteGreetingForm" style="display:none">
-    <form class="formContainer">
+    <form class="delFormContainer">
       <h3>Delete Greeting</h3>
-      <table>
-        <tr>
-          <td>
-            <pre> Are you sure...?<pre></td>
-        </tr>           
-        <tr>
-          <td> <button type="submit" id="deleteRecord" class="btn">Yes</button></td>
-          <td><button type="button" id="closeDeleteGreetingForm" class="btn" >No</button></td>
-        </tr>
-      </table>
+      <pre> Are you sure...?</pre>
+       <button type="submit" id="deleteRecord" class="deleteBtn">Yes</button>
+       <button type="button" id="closeDeleteGreetingForm" class="deleteBtn" >No</button>  
     </form>
+</div>
 
-    </div>>
-    <div class="update-form-popup" id="updateGreetingForm" style="display:none">
+<div class="update-form-popup" id="updateGreetingForm" style="display:none">
       <form id="updateGreeting" class="formContainer">
           <h3>Update Greeting</h3>
-          <table>
-            <tr>
-              <td> <input type="text" placeholder="Enter name" id="updateName" required pattern="[A-Z]{1}[a-zA-Z ]{2,}" autocomplete="off"></td>
-            </tr>
-            <tr>
-              <td><input type="text" placeholder="Enter  message" id="updateMsg" required pattern="[A-Z]{1}[a-zA-Z ]{2,}" autocomplete="off"></td>
-            </tr>
-            <tr>
-              <td> <button type="submit" id="updateRecord" class="btn">Save</button></td>
-              <td><button type="button" id="closeUpdateGreetingForm" class="btn">Close</button></td>
-            </tr>
-          </table>
+           <input type="text" placeholder="Enter name" id="updateName" required pattern="[A-Z]{1}[a-zA-Z ]{2,}" autocomplete="off">
+            <input type="text" placeholder="Enter  message" id="updateMsg" required pattern="[A-Z]{1}[a-zA-Z ]{2,}" autocomplete="off">
+            <button type="submit" id="updateRecord" class="btn">Save</button>
+            <button type="button" id="closeUpdateGreetingForm" class="btn">Close</button>          
         </form>
     </div>
 

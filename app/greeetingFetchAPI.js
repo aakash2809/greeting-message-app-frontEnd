@@ -29,11 +29,14 @@ delGreeting = (greetingId) => {
 */
 putGreeting = (greetingId) => {
     document.querySelector('.update-form-popup').style.display = 'flex';
-    console.log(document.getElementById("updateRecord"));
     document.getElementById("updateRecord").addEventListener('click',()=>{
         updateGreeting(greetingId);
+        alert("greeting has been updated");
+        
     });
  }
+
+
 
  /**
  * @description to colse popup on click  close button of delete greeting form

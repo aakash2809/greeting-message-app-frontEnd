@@ -126,8 +126,8 @@ body {
     border-radius: 8px;
   }
   .formContainer{
-    width: 265px;
-    height: 160px;
+    width: 345px;
+    height: 260px;
     background-color: white;
     opacity: 1;
     text-align: center;
@@ -135,9 +135,10 @@ body {
     border-radius: 15px;
   }
   input{
-      width:132%;
+      width: 80%;
+      height: 12%;
       display:block;
-      margin: 6px auto;
+      margin: 20px auto;
   }
   .panel-icon{
     height: 15px;
@@ -146,7 +147,7 @@ body {
     padding-top: 20px;
   }
   .btn{
-    margin-right: -71px;
+    margin: -5px -63px 6px 71px;
     color: skyblue;
     background: none;
     border: 1px solid skyblue;
@@ -154,11 +155,9 @@ body {
     padding: 3px 15px;
     text-decoration: none;
   }
-
   .btn:hover{
     background-color: rgb(36, 151, 197);
 } 
-
 .delete-form-popup{
     width: 100%;
     height: 100%;
@@ -184,3 +183,26 @@ body {
 .imgAligner{
     margin-left: 140px;
 }
+.delFormContainer{
+    width: 275px;
+    height: 130px;
+    background-color: white;
+    opacity: 1;
+    text-align: center;
+    padding: 20px;
+    border-radius: 15px;
+}
+.deleteBtn{
+    margin: -5px -63px 6px 71px;
+    color: skyblue;
+    background: none;
+    border: 1px solid skyblue;
+    border-radius: 15px;
+    padding: 3px 15px;
+    text-decoration: none;
+
+}
+.deleteBtn:hover{
+    background-color: rgb(36, 151, 197);
+} 
+
