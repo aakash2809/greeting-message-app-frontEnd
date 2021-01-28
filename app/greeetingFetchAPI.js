@@ -16,11 +16,9 @@ const serverUrl = 'http://localhost:2000';
 delGreeting = (greetingId) => {
     document.querySelector('.delete-form-popup').style.display = 'flex';
     document.getElementById('deleteRecord').addEventListener('click',()=>{
-        deleteGreeting(greetingId);
-       
+        deleteGreeting(greetingId);      
     });
 }
-
 
 /**
  * @description this function shows the popup after click on edit icon of each panel
@@ -30,8 +28,7 @@ delGreeting = (greetingId) => {
 putGreeting = (greetingId) => {
     document.querySelector('.update-form-popup').style.display = 'flex';
     document.getElementById("updateRecord").addEventListener('click',()=>{
-        updateGreeting(greetingId);
-          
+        updateGreeting(greetingId);         
     });
  }
 
@@ -63,18 +60,6 @@ document.getElementById("addNewgreeting").addEventListener('click', () => {
     document.querySelector('.form-popup').style.display = 'none';
   })
 
-  showDeleteSuccessAlert = () => {
-    alert("greeting has been deleted");  
-};
-
-showDeleteFaliureAlert = () =>{
-    alert("greeting has been deleted");  
-};
-
-showUpdateSuccessAlert = () => {
-    alert("greeting has been deleted");  
-};
-
 /**
  * @description Get all available greetings
 */
@@ -95,7 +80,6 @@ getAllGreetings = () => {
             </div>
            </div>`
         })
-
         document.querySelector("#app").insertAdjacentHTML("afterbegin", html);
     }).catch((err) => console.log(err));
 }
