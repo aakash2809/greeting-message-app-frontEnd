@@ -17,10 +17,10 @@ delGreeting = (greetingId) => {
     document.querySelector('.delete-form-popup').style.display = 'flex';
     document.getElementById('deleteRecord').addEventListener('click',()=>{
         deleteGreeting(greetingId);
-        document.querySelector('.delete-form-popup').style.display = 'none';
-        alert("greeting has been deleted");
+       
     });
 }
+
 
 /**
  * @description this function shows the popup after click on edit icon of each panel
@@ -31,12 +31,9 @@ putGreeting = (greetingId) => {
     document.querySelector('.update-form-popup').style.display = 'flex';
     document.getElementById("updateRecord").addEventListener('click',()=>{
         updateGreeting(greetingId);
-        alert("greeting has been updated");
-        
+          
     });
  }
-
-
 
  /**
  * @description to colse popup on click  close button of delete greeting form
@@ -65,6 +62,18 @@ document.getElementById("addNewgreeting").addEventListener('click', () => {
   document.getElementById("closeAddGreetingForm").addEventListener('click', () => {
     document.querySelector('.form-popup').style.display = 'none';
   })
+
+  showDeleteSuccessAlert = () => {
+    alert("greeting has been deleted");  
+};
+
+showDeleteFaliureAlert = () =>{
+    alert("greeting has been deleted");  
+};
+
+showUpdateSuccessAlert = () => {
+    alert("greeting has been deleted");  
+};
 
 /**
  * @description Get all available greetings
@@ -110,7 +119,9 @@ postGreeting = () => {
             return response.json();
         }).then((greetingData) => {
             console.log(greetingData);
+            alert("data has been save");
         }).catch((err) => {
+            alert("server error: can not save");
             console.log(err);
         })
     })
@@ -130,11 +141,12 @@ deleteGreeting = (greetingId) => {
         },
         method: "DELETE",
     }).then((response) => {
-        console.log(response)
         return response.json();
     }).then((greetingData) => {
         console.log(greetingData);
+       alert("greeting has been deleted");  
     }).catch((err) => {
+        alert("server error: can not delete");
         console.log(err);
     })
 }
@@ -157,12 +169,13 @@ updateGreeting = (greetingId) => {
         method: "PUT",
         body: JSON.stringify({ name: name, message: message }),
     }).then((response) => {
-        console.log(response)
         return response.json();
     }).then((greetingData) => {
+        alert("greeting has been updated");   
         console.log(greetingData);
     }).catch((err) => {
         console.log(err);
+        alert("server error: can not update")
     })
  })
 }
