@@ -49,29 +49,31 @@
     </div>
   </div>
   </div>
-<!-- 
-  <div class="form-popup" id="addGreetingForm" style="display:none">
-    <form id="addGreeting" class="formContainer" name="addForm"  onsubmit="return validateForm()">
-      <h3>Add Greeting</h3>
-      <input type="text" placeholder="Enter name" id="name" class="formError" name="gName" required  autocomplete="off">
-      <input type="text" placeholder="Enter message" id="msg" class="formError"  name="gMessage" required 
-        autocomplete="off">
-      <button type="submit" class="btn" >Save</button></td>
-      <button type="button" id="closeAddGreetingForm" class="btn">Close</button>
-    </form>
-  </div> -->
 
   <div class="form-popup" id="addGreetingForm" style="display:none">
+    <form id="addGreeting" action="javascript:saveGreeting();" class="formContainer" name="addForm"  onsubmit="return validateForm()">
+      <h3>Add Greeting</h3>
+      <input type="text" placeholder="Enter name" id="name" class="formError"  required  autocomplete="off">
+      <span id="nameError" class="errorMessage"></span>
+      <input type="text" placeholder="Enter message" id="msg" class="formError"  required 
+        autocomplete="off">
+        <span id="msgError" class="errorMessage"></span><br>
+      <button type="submit" class="btn" >Save</button>
+      <button type="button" id="closeAddGreetingForm" class="btn">Close</button>
+    </form>
+  </div>
+
+ <!--  <div class="form-popup" id="addGreetingForm" style="display:none">
     <form id="addGreeting" class="formContainer">
       <h3>Add Greeting</h3>
       <input type="text" placeholder="Enter name" id="name"  required pattern="[A-Z]{1}[a-zA-Z ]{2,}" autocomplete="off">
       <input type="text" placeholder="Enter message" id="msg" required pattern="[A-Z]{1}[a-zA-Z ]{2,}"
         autocomplete="off">
-      <button type="submit" class="btn" >Save</button></td>
+      <button type="submit" class="btn" >Save</button>
       <button type="button" id="closeAddGreetingForm" class="btn">Close</button>
     </form>
   </div> 
-
+ -->
   <div class="delete-form-popup" id="deleteGreetingForm" style="display:none">
     <form class="delFormContainer">
       <h3>Delete Greeting</h3>
@@ -95,23 +97,33 @@
 
 <!-- <script src="./formValidation.js"></script> -->
 <script>
-  setError = (id, error) =>{
-  element = document.getElementById(id);
-  console.log(element.getElementsByClassName("formError")[0]);
-  element.getElementsByClassName("formError")[0].innerHTML = error
-}
 
 validateForm = () =>{
-var returnval = true; 
-var name = document.forms['addForm']["gName"].value;
-console.log(name);
-
-if(name.length < 3){
-  setError("gName", "length is too short")
-returnval = false;
+var greetingName = document.getElementById('name').value;
+var greetingMessage = document.getElementById('msg').value;
+var reternValue = true;
+console.log(typeof greetingName);
+if(greetingName.length < 3){
+  document.getElementById('nameError').innerHTML = "* Length is too short"
+  reternValue = false;
 }
-
-return returnval;
+if(greetingName[0] != greetingName[0].toUpperCase()){
+  document.getElementById('nameError').innerHTML = "* First letter should be capital"
+  reternValue = false;
+}
+if(typeof greetingName != typeof ""){
+  document.getElementById('nameError').innerHTML = "* Name should a string only"
+  reternValue = false;
+}
+if(greetingMessage.length < 3){
+  document.getElementById('msgError').innerHTML = "* Length  is too short"
+  reternValue = false;
+}
+if(greetingMessage[0] != greetingMessage[0].toUpperCase()){
+  document.getElementById('msgError').innerHTML = "* First letter should be capital"
+  reternValue = false;
+}
+return reternValue;
 }
 
 </script>
