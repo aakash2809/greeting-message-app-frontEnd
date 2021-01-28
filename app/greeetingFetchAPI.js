@@ -7,6 +7,7 @@
 *------------------------------------------------------------------------------------------------------------------*/
 
 const serverUrl = 'http://localhost:2000';
+var idToUpdateGreeting = "";
 
 /**
  * @description this function shows the popup after click on delete icon of each panel
@@ -15,40 +16,42 @@ const serverUrl = 'http://localhost:2000';
 */
 showPopUpAndCallfetchApiForDeleteGreeting = (greetingId) => {
     document.querySelector('.delete-form-popup').style.display = 'flex';
-    document.getElementById('deleteRecord').addEventListener('click',()=>{
-        deleteGreeting(greetingId);      
+    document.getElementById('deleteRecord').addEventListener('click', () => {
+        deleteGreeting(greetingId);
     });
 }
 
 /**
  * @description this function shows the popup after click on edit icon of each panel
- * and it call to updateGreeting() to update greeting. 
  * @param greetingId to update greeting, appended with it
 */
-showPopUpAndCallfetchApiForUpdateGreeting = (greetingId) => {
+
+showPopForUpdateGreeting = (greetingId) => {
     document.querySelector('.update-form-popup').style.display = 'flex';
-    document.getElementById("updateRecord").addEventListener('click',()=>{
-        updateGreeting(greetingId);         
-    });
- }
+    idToUpdateGreeting = greetingId;
+}
 
-/*  document.getElementById('addGreeting').addEventListener('submit', (e) => {
-    var name = document.getElementById('name').value;
-    var message = document.getElementById('msg').value;
-    postGreeting(name,message);
-}) */
-
-saveGreeting = () => {
-    var name = document.getElementById('name').value;
-    console.log(name);
-    var message = document.getElementById('msg').value;
-    document.querySelector('#addGreeting').style.display = 'none';
-    postGreeting(name,message);
+/**
+ * @description  call to updateGreeting() to update greeting. 
+ */
+callToUpdateGreeting = () => {
+    document.querySelector('.update-form-popup').style.display = 'none';
+    updateGreeting(idToUpdateGreeting);
     location.reload();
 }
 
- /**
- * @description to colse popup on click  close button of delete greeting form
+/**
+ * @description  call to postGreeting() to update greeting. 
+ */
+saveGreeting = () => {
+    var name = document.getElementById('name').value;
+    var message = document.getElementById('msg').value;
+    document.querySelector('#addGreeting').style.display = 'none';
+    postGreeting(name, message);
+}
+
+/**
+* @description to colse popup on click  close button of delete greeting form
 */
 document.getElementById("closeDeleteGreetingForm").addEventListener('click', () => {
     document.querySelector('.delete-form-popup').style.display = 'none';
@@ -59,6 +62,7 @@ document.getElementById("closeDeleteGreetingForm").addEventListener('click', () 
 */
 document.getElementById("closeUpdateGreetingForm").addEventListener('click', () => {
     document.querySelector('.update-form-popup').style.display = 'none';
+    location.reload();
 })
 
 /**
@@ -66,15 +70,15 @@ document.getElementById("closeUpdateGreetingForm").addEventListener('click', () 
 */
 document.getElementById("addNewgreeting").addEventListener('click', () => {
     document.querySelector('.form-popup').style.display = 'flex';
-  })
+})
 
 /**
  * @description to colse popup on click  close button of add greeting form
 */
-  document.getElementById("closeAddGreetingForm").addEventListener('click', () => {
+document.getElementById("closeAddGreetingForm").addEventListener('click', () => {
     document.querySelector('.form-popup').style.display = 'none';
     location.reload();
-  })
+})
 
 /**
  * @description Get all available greetings
@@ -91,7 +95,7 @@ getAllGreetings = () => {
             <pre>${greeting.message}</pre>
             <pre>${(greeting.createdAt).substring(0, 10)}</pre>
             <div class="imgAligner">
-            <img src="../app/assets/edit.png" id="" class="panel-icon" onclick="showPopUpAndCallfetchApiForUpdateGreeting('${greeting._id}')">
+            <img src="../app/assets/edit.png" id="" class="panel-icon" onclick="showPopForUpdateGreeting('${greeting._id}')">
             <img  src="../app/assets/trash.png" id="a" class="panel-icon" onclick="showPopUpAndCallfetchApiForDeleteGreeting('${greeting._id}')">
             </div>
            </div>`
@@ -103,25 +107,26 @@ getAllGreetings = () => {
 /**
  * @description POST greeting (data post by popup form)
 */
-postGreeting = (name,message) => {
-        url = `${serverUrl}/addGreeting`;
-        fetch(url, {
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            method: "POST",
-            body: JSON.stringify({ name: name, message: message }),
-        }).then((response) => {
-            return response.json();
-        }).then((greetingData) => {
-            console.log(greetingData);
-            alert("data has been save");
-        }).catch((err) => {
-            alert("server error: can not save");
-            console.log(err);
-        })
-   
+postGreeting = (name, message) => {
+    url = `${serverUrl}/addGreeting`;
+    fetch(url, {
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        method: "POST",
+        body: JSON.stringify({ name: name, message: message }),
+    }).then((response) => {
+        return response.json();
+    }).then((greetingData) => {
+        console.log(greetingData);
+        alert("data has been save");
+        location.reload();
+        return;
+    }).catch((err) => {
+        alert("server error: can not save");
+        location.reload();
+    })
 }
 
 /**
@@ -140,11 +145,10 @@ deleteGreeting = (greetingId) => {
     }).then((response) => {
         return response.json();
     }).then((greetingData) => {
-        console.log(greetingData);
-       alert("greeting has been deleted");  
+        alert("greeting has been deleted");
+        return;
     }).catch((err) => {
         alert("server error: can not delete");
-        console.log(err);
     })
 }
 
@@ -153,9 +157,8 @@ deleteGreeting = (greetingId) => {
  * @param greetingId to update greeting, appended with it
 */
 updateGreeting = (greetingId) => {
-    document.getElementById('updateGreeting').addEventListener('submit', (e) => {
-        var name = document.getElementById('updateName').value;      
-        var message = document.getElementById('updateMsg').value;       
+    var name = document.getElementById('updateName').value;
+    var message = document.getElementById('updateMsg').value;
     let id = greetingId;
     url = `${serverUrl}/updateGreeting/${id}`;
     fetch(url, {
@@ -168,13 +171,12 @@ updateGreeting = (greetingId) => {
     }).then((response) => {
         return response.json();
     }).then((greetingData) => {
-        alert("greeting has been updated");   
-        console.log(greetingData);
+        alert("greeting has been updated");
+        return;
     }).catch((err) => {
-        console.log(err);
         alert("server error: can not update")
     })
- })
+
 }
 
 getAllGreetings();

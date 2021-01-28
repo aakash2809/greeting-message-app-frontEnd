@@ -51,7 +51,7 @@
   </div>
 
   <div class="form-popup" id="addGreetingForm" style="display:none">
-    <form id="addGreeting" action="javascript:saveGreeting();" class="formContainer" name="addForm"  onsubmit="return validateForm()">
+    <form id="addGreeting" action="javascript:saveGreeting();" class="formContainer" name="addForm"  onsubmit="return validateAddGreetingForm()">
       <h3>Add Greeting</h3>
       <input type="text" placeholder="Enter name" id="name" class="formError"  required  autocomplete="off">
       <span id="nameError" class="errorMessage"></span>
@@ -63,17 +63,6 @@
     </form>
   </div>
 
- <!--  <div class="form-popup" id="addGreetingForm" style="display:none">
-    <form id="addGreeting" class="formContainer">
-      <h3>Add Greeting</h3>
-      <input type="text" placeholder="Enter name" id="name"  required pattern="[A-Z]{1}[a-zA-Z ]{2,}" autocomplete="off">
-      <input type="text" placeholder="Enter message" id="msg" required pattern="[A-Z]{1}[a-zA-Z ]{2,}"
-        autocomplete="off">
-      <button type="submit" class="btn" >Save</button>
-      <button type="button" id="closeAddGreetingForm" class="btn">Close</button>
-    </form>
-  </div> 
- -->
   <div class="delete-form-popup" id="deleteGreetingForm" style="display:none">
     <form class="delFormContainer">
       <h3>Delete Greeting</h3>
@@ -84,23 +73,26 @@
 </div>
 
 <div class="update-form-popup" id="updateGreetingForm" style="display:none">
-      <form id="updateGreeting" class="formContainer">
+      <form action="javascript:callToUpdateGreeting();" id="updateGreeting" class="formContainer" onsubmit="return validateUpdateGreetingForm()">
           <h3>Update Greeting</h3>
-           <input type="text" placeholder="Enter name" id="updateName" required pattern="[A-Z]{1}[a-zA-Z ]{2,}" autocomplete="off">
-            <input type="text" placeholder="Enter  message" id="updateMsg" required pattern="[A-Z]{1}[a-zA-Z ]{2,}" autocomplete="off">
-            <button type="submit" id="updateRecord" class="btn">Save</button>
+           <input type="text" placeholder="Enter name" id="updateName" required  autocomplete="off">
+           <span id="updNameError" class="errorMessage"></span>
+           <input type="text" placeholder="Enter  message" id="updateMsg" required  autocomplete="off">
+           <span id="updMsgError" class="errorMessage"></span><br>
+           <button type="submit" id="updateRecord" class="btn">Save</button>
             <button type="button" id="closeUpdateGreetingForm" class="btn">Close</button>          
         </form>
     </div>
 
 </body>
 
-<!-- <script src="./formValidation.js"></script> -->
 <script>
 
-validateForm = () =>{
+validateAddGreetingForm = () =>{
+
 var greetingName = document.getElementById('name').value;
 var greetingMessage = document.getElementById('msg').value;
+
 var reternValue = true;
 console.log(typeof greetingName);
 if(greetingName.length < 3){
@@ -111,10 +103,7 @@ if(greetingName[0] != greetingName[0].toUpperCase()){
   document.getElementById('nameError').innerHTML = "* First letter should be capital"
   reternValue = false;
 }
-if(typeof greetingName != typeof ""){
-  document.getElementById('nameError').innerHTML = "* Name should a string only"
-  reternValue = false;
-}
+
 if(greetingMessage.length < 3){
   document.getElementById('msgError').innerHTML = "* Length  is too short"
   reternValue = false;
@@ -123,8 +112,37 @@ if(greetingMessage[0] != greetingMessage[0].toUpperCase()){
   document.getElementById('msgError').innerHTML = "* First letter should be capital"
   reternValue = false;
 }
+
 return reternValue;
 }
+
+validateUpdateGreetingForm = () =>{
+  var greetingName = document.getElementById('updateName').value;
+var greetingMessage = document.getElementById('updateMsg').value;
+
+var reternValue = true;
+console.log(typeof greetingName);
+if(greetingName.length < 3){
+  document.getElementById('updNameError').innerHTML = "* Length is too short"
+  reternValue = false;
+}
+if(greetingName[0] != greetingName[0].toUpperCase()){
+  document.getElementById('updNameError').innerHTML = "* First letter should be capital"
+  reternValue = false;
+}
+
+if(greetingMessage.length < 3){
+  document.getElementById('updMsgError').innerHTML = "* Length  is too short"
+  reternValue = false;
+}
+if(greetingMessage[0] != greetingMessage[0].toUpperCase()){
+  document.getElementById('updMsgError').innerHTML = "* First letter should be capital"
+  reternValue = false;
+}
+
+return reternValue;
+}
+
 
 </script>
 <script src="./greeetingFetchAPI.js"></script>
