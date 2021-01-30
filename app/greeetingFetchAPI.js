@@ -17,6 +17,7 @@ var idToUpdateGreeting = "";
 showPopUpAndCallfetchApiForDeleteGreeting = (greetingId) => {
     document.querySelector('.delete-form-popup').style.display = 'flex';
     document.getElementById('deleteRecord').addEventListener('click', () => {
+        document.querySelector('.delete-form-popup').style.display = 'none';
         deleteGreeting(greetingId);
     });
 }
@@ -120,11 +121,11 @@ postGreeting = (name, message) => {
         return response.json();
     }).then((greetingData) => {
         console.log(greetingData);
-        alert("data has been save");
+        alert("greeting has been save");
         location.reload();
         return;
     }).catch((err) => {
-        alert("server error: can not save");
+        alert("server error: greeting can not save");
         location.reload();
     })
 }
@@ -145,10 +146,10 @@ deleteGreeting = (greetingId) => {
     }).then((response) => {
         return response.json();
     }).then((greetingData) => {
-        alert("greeting has been deleted");
-        return;
+        return alert("greeting has been deleted");
+        ;
     }).catch((err) => {
-        alert("server error: can not delete");
+        alert("server error: greeting can not delete");
     })
 }
 
@@ -174,7 +175,7 @@ updateGreeting = (greetingId) => {
         alert("greeting has been updated");
         return;
     }).catch((err) => {
-        alert("server error: can not update")
+        alert("server error: greeting can not update")
     })
 
 }
